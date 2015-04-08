@@ -7,7 +7,32 @@
 
 /* NOTE: ADD ANY SUPLIMENTARY FUNCTIONS HERE */
 /* ANY JQUERY SHOULD RESIDE IN THE DOCUMENT.READY FUNCTION BELOW. */
+/* ======================================  Mastery Question Code     ================================== */
+//add one of these for each question, and make sure the ID's match. This goes in the main JS function. #noJquery
+document.getElementById("questionOne").addEventListener("click",revealAnswer,false);
+document.getElementById("questionTwo").addEventListener("click",revealAnswer,false);
+document.getElementById("questionThree").addEventListener("click",revealAnswer,false);
+document.getElementById("questionFour").addEventListener("click",revealAnswer,false);
 
+/* This is the JS function...it should reside in any of the linked scripts */
+function revealAnswer(){
+	//the element variable is refering to the element that was clicked upon.
+	var element = this;
+	//grab all the LI within the parent
+	var listItems = element.getElementsByTagName('li');
+	//RIP through them, if correct then style one way, if NOT make gray.
+	for (var i=0, length=listItems.length;i < length;i++){
+		var theClassname = listItems[i].className;
+
+		if (theClassname == "correct CEL-answer"){
+			listItems[i].style.color = "#2EFF06";
+			listItems[i].style.fontWeight = "700";
+
+		}
+		else{listItems[i].style.color = "#adadad";}//end if
+	}//end for
+
+}//end function
 
 
 /* ========================================================== 
