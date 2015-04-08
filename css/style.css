@@ -1,0 +1,432 @@
+
+/* =============================================================================
+   HTML5 Boilerplate CSS: h5bp.com/css
+   ========================================================================== */
+
+
+audio,canvas,video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: 'Lato', sans-serif; color: #222; }
+::-moz-selection { background: #95c2eb; color: #fff; text-shadow: none; }
+::selection { background: #95c2eb; color: #fff; text-shadow: none; }
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+label { cursor: pointer; }
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+li p{margin: 0 auto 0 auto;}
+
+
+
+/* ===== Primary default Styles ========================================================
+   Lead Author:Ian Vanhoof (ian@fscj.edu>
+   Graphic Design: Eddie Rodriguez (E.Rodriguez@fscj.edu)
+   Author:Cam Hayes(cahayes@fscj.edu>
+   
+   ========================================================================== */
+	/* ==================== Color Controls.  */
+	
+	/* Changes the color of the main header, and the color of the text */ 
+	.CEL-LO-Page-header{background-color: #000000;color: #FFFFFF;}
+	
+	/* changes the color of the print header if there is any  */
+	.CEL-printHeader{background-color: #333;}
+	
+	/* change out the main background graphic  */
+	body{background-image: url(../img/CEL-mainBackground.png);}
+	
+	/* change the navigation button default color */
+	.CEL-navElement{background-color: #ededed;}
+	
+	/* change the navigation button's hover state color */
+	.CEL-navElement:hover{background-color: #fdfdfd;}
+	
+	/* change the navigation button's visited slide color */
+	.CEL-pastSlide{background-color: #777;}
+	
+	/* change the navigation button's current slide state color */
+	.CEL-currentSlide{background-color: #FF0201;}
+	
+	/* change the color of the well header background, and background. */
+	.well{background-color: #eee;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;}
+	.well h1, .well h2, .well h3, .well h4, .well h5, .well h6{background-color: #777;color: #fff;border-top-left-radius: 5px;border-top-right-radius: 5px;text-align: center;}
+	
+ 	/* =================> High level styles */
+	
+	
+	.shadow {-moz-box-shadow: 3px 3px 4px #555;-webkit-box-shadow: 3px 3px 4px #555;box-shadow: 3px 3px 4px #555;
+	/* For IE 8 */	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#555555')";
+	/* For IE 5.5 - 7 */filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#555555');}
+	body{font-family: 'Lato', sans-serif; font-weight: 400;}
+	.CEL-LO-Page{position:relative;top:0;left:0;width: 100%;height:6.25em;margin: auto;}
+	img, audio, canvas, video, iframe{max-width: 100%;} 
+	object{position:absolute; left:0; top:0; width:100%; height:100%;}
+	.CEL-videoBox{padding-top:60.4167%;position:relative;}/* NOTE: padding top value is derived using height/width = padding-top value */
+	.CEL-videoBox object, .CEL-videoBox iframe{position: absolute;left:0;top:0;width:100%;height:100%;}
+	h1{font-family: 'Lato', sans-serif;font-weight: 400;}
+	h2{font-family: 'Lato', sans-serif;font-weight: 700;}
+	
+/* CEL reveal widget styles */
+.CEL-revealTarget{opacity: 0;}
+/* CEL Accordion Styles */
+
+	
+	.CEL-accordion-container{float: left;width: 100%;margin: 0;padding: 0;display: inline-block;}
+	.CEL-accordionBox{float: left;width: 100%;margin: 0;padding: 0;display: inline-block;}
+	.CEL-accordionHeader{background-color: #999;margin: .125em 0 .125em 0;padding: 0 0 0 10px;border-radius: 5px;}
+	.CEL-accordionHeader:hover{background-color: #777;}
+	
+	
+/* Tabular Widget Styles */
+
+	.CEL-tabular-container{float: left;width: 99%;margin: 0;padding: .5em;display: inline-block;background-color: #ededed;border-radius: 3px;}
+	.CEL-tabNavContainer{float: left;width: 100%;margin: 0 .125em .125em 0;padding: 0;display: inline-block;}
+	.CEL-tabNav{float: left;display: inline-block;color:#FFF;background-color: #777;border: 1px solid #666; padding: .25em .5em .25em .5em;margin: .25em .25em -.18em 0;border-radius: 3px;}
+	.CEL-tabNav:hover{background-color: #fff;color: #333;}
+	.CEL-tab-content{float: left;width: 100%;margin: 0;display: inline-block;opacity: 0;padding-top: .5em;}
+	.CEL-tabNav-current{background-color: red !important;}
+
+/* =============================================================================
+  Begin Cel Table styles
+  ========================================================================== */
+
+.CEL-table { border: 1px solid #999; background-color: #EDEDED; position: relative; margin: 5px 5px 10px 5px;  overflow: auto; }
+
+/* This header div needs to be built INSIDE of the MAIN table div in the HTML. */
+.CEL-table-header { display: inline-block; background-color: #fff; text-align: center; color: #FFF; position: relative; width: 100%; border-bottom: 1px solid #999; }
+
+/* These are your custom header colors. Use these wisely */
+	.CEL-table-header h3.gray { color: #777; }
+	.CEL-table-header h3.blue { color: #263b98; }
+	.CEL-table-header h3.green { color: #75d028; }
+	.CEL-table-header h3.orange {	color: #ff7700; }
+	
+/* If you plan on using a graphic in the header, I suggest using this class to keep things pretty. */
+	img.table-header { margin-top: 10px; margin-left: auto;  margin-right: auto; float: none !important;}
+
+/* The divs containing the Left and Right text are below. These are set PERFECTLY to match a coherent size and NOT BREAK when scaling down. Do not touch the margins, padding, or widths otherwise you're just breaking things. */
+
+div.left { color: #000; margin: 10px 0 10px 1px; display:inline-block; width: 40%; padding: 10px 0 10px 10px; word-wrap: break-word; font-weight: bold; height: 100%; vertical-align: middle; }
+div.right { color: #000; margin: 10px 4px 10px 0; width: 49%; padding: 10px 0 10px 0; float:right; word-wrap:break-word; }
+
+/* Rows are color coded to make them more visually stimulating. The final row in your table should be the ONLY one that uses div.row.bottom. This prevents the issue of stacking borders */
+
+div.row { border-bottom: 2px solid #999; overflow: auto; }
+	div.row.light-orange { background-color: #ffe0c4; }
+	div.row.dark-orange { background-color: #ffcb9d; }
+	div.row.light-green { background-color: #dcf4c8; }
+	div.row.dark-green { background-color: #c7eea7; }
+	div.row.light-blue { background-color: #dbe0f6; }
+	div.row.dark-blue { background-color: #bbc5ee; }
+	div.row.light-gray { background-color: #999;color:#fff !important; }
+	div.row.dark-gray { background-color: #888;color:#fff !important; }
+	div.row.bottom { border: none; }
+	
+
+/* End Custom Table */
+
+/* Multiple CHoice Question styles */
+		.CEL-Multi-questionList{list-style: none;}
+		.CEL-Multi-questionList li input{margin-right: 10px;}
+		.correctMulti{color: #00B502;font-weight: 800;}
+		.incorrectMulti{color: #b50000;font-weight: 800;}
+	
+
+  /* True False Question styles */
+		.CEL-TF-questionList{list-style: none;}
+		.correctTF{color: #00B502;font-weight: 800;}
+		.incorrectTF{color: #b50000;font-weight: 800;}
+		
+  /* 	Print header styles.  */
+  	.CEL-printHeader{position: relative;top: 0;left: -1%; width: 102%;}
+	.printHeaderColorBar{float: left; top: 0;left: 0;width: 60%;}
+	.printHeaderImage{float:right !important;width: 40%;margin: 0 !important;padding:0 !important;}
+	.printHeaderHeader{float:left;width:59%;padding: 0;margin:0 ;font-size: 2em;text-align: right;color: white;}
+
+/* Fill in the blank quesiton styles. */ 
+
+	.CEL-questionBlank:hover{background-color: #bbcff6;}
+
+
+
+
+/* =================> Header styles *//* DO NOT TOUCH */
+	
+	
+	.CEL-LO-Page-header{float:left;width: 110%;height: 4.5em;overflow: hidden;margin-top: 0;}
+	#celLogo{float: left;width: 4.5em;margin: 0 0 0 1em;}
+	.CEL-course-number{color: #FFF;height:4.5em;float: left;padding:1em 0 0 .25em;font-size: 1.5em;font-weight: bold;}
+	.CEL-course-name{color: #FFF;height:4.5em;float: left;padding:1em 0 0 1em;font-size: 1.5em;font-weight: bold;}
+
+
+/* =================> Column Layout styles *//* DO NOT TOUCH */
+	/* DO NOT TOUCH */
+	.CEL-slide-container{float: left; width: 80%;margin: 0 10% 0 10%;}
+	.CEL-1col-100{float: left;width: 100%;margin: .5% 0 .5% 0;}
+	/* 50/50 2 column split */
+	.CEL-2col-50-a{float: left;width: 49.5%;margin: .5% .5% .5% 0;}
+	.CEL-2col-50-b{float: right;width: 49.5%;margin: .5% 0 .5% .5%;}
+	
+	/* 60/40 2 column split */
+	.CEL-2col-60-a{float:left;width: 61.3033%;margin: .5% .5% .5% 0;}
+	.CEL-2col-40-b{float:right;width: 37.6967%;margin: .5% 0 .5% .5%;}
+	
+	/* 40/60 2 column split */
+	.CEL-2col-40-a{float:left;width: 37.6967%;margin: .5% .5% .5% 0;}
+	.CEL-2col-60-b{float:right;width: 61.3033%;margin: .5% 0 .5% .5%;}
+	
+	/* 30/30/30 3 column split */
+	.CEL-3col-30-a{float:left;width: 32.666%;margin: .5% .5% .5% 0;}
+	.CEL-3col-30-b{float:left;width: 32.666%;margin: .5% .5% .5% .5%;}
+	.CEL-3col-30-c{float:left;width: 32.666%;margin: .5% 0 .5% .5%;}
+	
+	/* 25/25/25/25 4 column split */
+	.CEL-4col-25-a{float:left;width: 24.25%;margin: .5% .5% .5% 0;}
+	.CEL-4col-25-b{float:left;width: 24.25%;margin: .5% .5% .5% .5%;}
+	.CEL-4col-25-c{float:left;width: 24.25%;margin: .5% .5% .5% .5%;}
+	.CEL-4col-25-d{float:right;width: 24.25%;margin: .5% 0 .5% .5%;}
+	
+	/* Use this to divide sections */
+	.CEL-divider{float: left; width: 100%;height: .125em;}
+
+/* =================> Slide + slide nav styles */ 
+	/* nav button styles */
+	.CEL-navElements{float:left;width: 80%;margin: .75em 0 .75em 10%;}
+	.CEL-navElement{float: left;width:3em;height: 3em; border: 1px solid #999;margin: .25em .25em 0 0;border-radius: 5px;}
+	.CEL-navElement:hover{float: left;width:3em;height: 3em; border: 1px solid #999;margin: .25em .25em 0 0;border-radius: 5px;}
+	
+	
+	.CEL-navElement p {color: #333;width: 100%;text-align: center;margin:0;padding: .4em 0 0 0;}
+	
+	/* slide styles */
+	.CEL-slide{float: left;width: 100%;color: #000;opacity:0;}
+	.CEL-slideContent{width: 99%;min-height:28.125em;float:left;margin:0 auto 250px 0;padding:0 1% 0 1%;border-radius: 5px;background-color: #fff;}
+	.CEL-slideContent img{float: left;margin-bottom: 10px;}
+	.CEL-copyrightInfo{font-size: .7em;text-align: center;width: 100%;margin: 1em 0 1em 0;}
+	.CEL-answer:hover{background-color: #ededed;color: #000;}
+	.CEL-answer a{text-decoration: none;color: #000;}
+	.CEL-answer{font-size: 1em;}
+	.CEL-slideCounter{font-size: .9em;color: #999;}
+	.CEL-center{text-align: center;}
+	
+	#directionsButton{float: left;height:3em;border: 1px solid #999;border-radius: 5px;margin-top: .25em;margin-left:.25em;background-image: url("../img/transparentWhite.png");font-weight: 400;}
+	#directionsButton p{color: #333;width: 100%;text-align: center;margin:0;padding: .6em .25em 0 .25em;}
+	#directionsButton:hover{background-color: #FFF;color: #999;border: 1px solid }
+	#nav-hide-directions:hover{background-color: #555;color: #FFF;}
+	#nslpButton:hover{background-color: #555;color: #FFF;}
+	#nslpFullList{border: 3px solid #000;border-radius: 5px;}
+	#slidePopup{border: 3px solid #000;border-radius: 5px;}
+	#CEL-gotoTopLink{float: left;font-size: 1em;line-height: 1.5;font-weight: 700;margin-top: -11em;color:#fff;}
+	
+/* =================> Media Control styles */ 
+	.mediaGroup {float: left;height:3em;border: 1px solid #999;border-radius: 5px;margin-top: .25em;background-image: url("../img/transparentWhite.png");}
+	.CEL-mediaTitle{float: left;height:3em;margin: 0 .2em 0 .5em;padding-top:.4em;}
+	.CEL-mediaButton{float: left;height:3em;margin: 0 .2em 0 .2em;padding-top:.65em; width: 1.5em;}
+	.CEL-mediaButton:hover{float: left;height:3em;margin: 0 .2em 0 .2em;padding-top:.65em; width: 1.5em;border-top: 2px solid #FFF;}
+
+
+	
+	/* =====================================================     The Matching Game CSS Styles =================================== */
+     #dragAnswerList{list-style: none;float: left;margin-top: 0;padding-top: 0;}
+		.answerIcon{width: 1.5em;height: 1.3em;display: inline-block;}
+		.answerList{text-decoration: none;margin: 0 10px 0 0;padding: 0;white-space: nowrap;list-style-type:none;width: 100%;float: right;}
+		.answerList li{display: inline;float: right;}
+		#CEL-check-button{float: right;}
+
+/* =============================================================================
+   Media Queries
+   NOTE: these media queries take care of the very most basic things. Go ahead and change them to reflect the needs of the content as is inserted, but take care as you could very well break things here on multiple levels. 
+    ========================================================================== */
+@media only screen and (max-width: 162.5em) {
+	/* 2600px */
+	/* Changing the size and margins of the type as the page gets larger */
+	/* =======================================================typography */
+	h1{font-size: 3.75em;line-height: 1.5;} /* 60pxs */
+	h2{font-size: 3em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 48pxs */
+	h3{font-size: 2.25em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 36pxs */
+	h4{font-size: 1.5em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 24pxs */
+	h5{font-size: 1.3125em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 21pxs */
+	h6{font-size: 1.125em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 18pxs */
+	p{font-size: 1.3125em;line-height: 1.5;padding-left:.75em;padding-right: .5em;} /* 18pxs */
+	body { margin: 0; font-size: 1.3125; line-height: 1.5em; }/* 18pxs */
+	#directionsButton p{color: #333;width: 100%;text-align: center;margin:0;padding: .4em .25em 0 .25em;}
+	
+}
+
+@media only screen and (max-width: 87.5em) {
+
+	/* 1400px */
+	/* Changing the size and margins of the type as the page gets larger */
+	
+	/* =======================================================typography */
+	h1{font-size: 3em;line-height: 1.5;} /* 48pxs */
+	h2{font-size: 2.25em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 36pxs */
+	h3{font-size: 1.5em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 24pxs */
+	h4{font-size: 1.3125em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 21pxs */
+	h5{font-size: 1.125em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 18pxs */
+	h6{font-size: 1em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 16pxs */
+	p{font-size: 1em;line-height: 1.5;padding-left:.75em;padding-right: .5em;} /* 16pxs */
+	body { margin: 0; font-size: 1em; line-height: 1.5; }/* 16pxs */
+	
+	
+	/* THis changes the vertical alignment of the navElements and the Audio controller text */
+	.CEL-navElement p {width: 100%;text-align: center;margin:0;padding: .7em 0 0 0;}
+	.CEL-mediaTitle{float: left;height:3em;margin: 0 .2em 0 .5em;padding-top:.7em;}
+	
+	#directionsButton p{color: #333;width: 100%;text-align: center;margin:0;padding: .7em .25em 0 .25em;}
+	#CEL-gotoTopLink{float: left;font-size: 1em;line-height: 1.5;font-weight: 700;margin-top: -15em;}
+	
+}
+
+@media only screen and (max-width: 66.25em) {
+	/* 1060 px */
+	/* Changing the size and margins of the type as the page gets larger */
+	/* =======================================================typography */
+	h1{font-size: 2.25em;line-height: 1.5;} /* 36pxs */
+	h2{font-size: 1.5em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 24pxs */
+	h3{font-size: 1.3125em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 21pxs */
+	h4{font-size: 1.125em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 18pxs */
+	h5{font-size: 1em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 16pxs */
+	h6{font-size: .875em;line-height: 1.5;margin-top:0;padding-top:0;padding-left:.25em;} /* 14pxs */
+	
+	p{font-size: 1em;line-height: 1.5;padding-left:.75em;padding-right: .5em;} /* 16pxs */
+	body { margin: 0; font-size: 1em; line-height: 1.5; }/* 16pxs */
+	
+	
+	/* THis changes the vertical alignment of the navElements and the Audio controller text */
+	.CEL-navElement p {width: 100%;text-align: center;margin:0;padding: .7em 0 0 0;}
+	.CEL-mediaTitle{float: left;height:3em;margin: 0 .2em 0 .5em;padding-top:.7em;}
+	
+}
+@media only screen and (max-width: 66.25em) {
+	.printHeaderHeader{font-size: 1.5em;}
+	
+}
+@media only screen and (max-width: 63em) {
+	.printHeaderHeader{font-size: 1em;}
+	
+}
+@media only screen and (max-width: 50em) {
+	/* 800 px */
+	/* 25/25/25/25 4 column split */
+	/* The columns were too thin to read, so I made them the whole width of the container */
+	.CEL-4col-25-a{width: 100%;}
+	.CEL-4col-25-b{width: 100%;}
+	.CEL-4col-25-c{width: 100%;}
+	.CEL-4col-25-d{width: 100%;}
+	
+	.CEL-course-number{color: #FFF;height:4.5em;float: left;padding:.5em 0 0 .25em;font-size: 1em;font-weight: bold;}
+	.CEL-course-name{color: #FFF;height:4.5em;float: left;padding:.5em 0 0 .75em;font-size: 1em;font-weight: bold;}
+	#celLogo{float: left;width: 2.25em;margin: 0 0 0 1em;}
+	.CEL-LO-Page-header{float:left;width: 110%;height: 2.5em;overflow: hidden;}
+	.CEL-mediaButton{float: left;height:3em;margin: -.4em .2em 0 .5em;padding-top:0; width: 1.5em;}
+	.printHeaderImage{display: none !important;visibility: hidden;}
+}
+
+@media only screen and (max-width: 43.75em) {
+	/* 700 px */
+	/* The columns were too thin to read, so I made them the whole width of the container */
+	/* 30/30/30 3 column split */
+	.CEL-3col-30-a{width: 100%;}
+	.CEL-3col-30-b{width: 100%;}
+	.CEL-3col-30-c{width: 100%;}
+	
+}
+@media only screen and (max-width: 37.5em) {
+	/* 600 px */
+	/* The columns were too thin to read, so I made them the whole width of the container */
+	/* 60/40 2 column split */
+	.CEL-2col-60-a{width: 100%;}
+	.CEL-2col-40-b{width: 100%;}
+	
+	/* 40/60 2 column split */
+	.CEL-2col-40-a{width: 100%;}
+	.CEL-2col-60-b{width: 100%;}
+	
+	}
+@media only screen and (max-width: 32.5em) {
+	.printHeaderHeader{font-size: 1.5em; margin: 10px 10px 5px 10px; text-align: left; width: 100%;}
+	.printHeaderColorBar {width:100%;}
+	.printHeaderImage { width: 100%; margin-top: -10px !important;}
+	
+}
+@media only screen and (max-width: 31.25em) {
+	/* 500 px */
+	/* The columns were too thin to read, so I made them the whole width of the container */
+	/* 50/50 2 column split */
+	.CEL-2col-50-a{width: 100%;}
+	.CEL-2col-50-b{width: 100%;}
+	/* This one is for tables only */
+	div.left {width: 100%; text-align: center; padding: 0; margin: 0; height: auto; text-decoration: underline; }
+	div.right {width: 90%; float: left; padding: 0; margin: 10px; padding: 0;  }
+	
+	}
+@media only screen and (max-width: 25em) {
+	/* 400 px */
+	/* The columns were too thin to read, so I made them the whole width of the container */
+	/* 50/50 2 column split */
+	.CEL-slide-container{width: 90%;}
+	.CEL-navElements{width: 90%;}
+	.CEL-course-number{color: #FFF;height:4.5em;float: left;padding:.75em 0 0 .25em;font-size: .75em;font-weight: bold;}
+	.CEL-course-name{color: #FFF;height:4.5em;float: left;padding:.75em 0 0 .75em;font-size: .75em;font-weight: bold;}
+	
+	}
+
+
+/* =============================================================================
+   HTML5Boilerplate Non-Semantic Helper Classes
+   ========================================================================== */
+
+
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+.hidden {display: none !important;visibility: hidden;}
+
+/* =============================================================================
+   HTML5Boilerplate Print Styles
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
