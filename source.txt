@@ -36,6 +36,7 @@ function revealAnswer(){
 		}
 		else{listItems[i].style.color = "#adadad";}//end if
 	}//end for
+	//if your questions have no feedback then just comment the following line out.
 	alert(theFeedback);
 
 }//end function
