@@ -2,79 +2,90 @@ This is a widget that was made to be used within the Center for E-Learning's Lea
 
  /* ======================================  The JS     ================================== */
  // Directions
- // Paste the JS code at the top of the linked custom.JS file.
- // Make sure there is an addEventListener line per IDed HTML button element.
- // Make sure that the ID on the addEventListener line matches ID on the button element exactly.
+ // Paste the JS code at the top of the linked .JS file.
+ // Make sure there is an addEventListener line per IDed HTML UL answer element.
+ // Make sure that the ID on the addEventListener line matches an UL List element exactly.
 
  //=====================start JS copy here
 
-function revealHandler(){
-    var getThisElement,theElementIWantTOReveal;
-    //grab the ID of the button i clicked
-    getThisElement = this.getAttribute("data-pair");
-    //grab that matching element
-    theElementIWantTOReveal = document.getElementById(getThisElement);
-    //if it's visible (show), if not then (hide).
-    if(theElementIWantTOReveal.className === "theReveal visuallyhidden"){
-        theElementIWantTOReveal.className = "theReveal";
-    }else{
-        theElementIWantTOReveal.className = "theReveal visuallyhidden";
-    }
-    //end if
-}//end reveal handler function
-//adding event listeners for the click and reveals.
-//document.getElementById("01a").addEventListener("click",revealHandler,false);
-//document.getElementById("02a").addEventListener("click",revealHandler,false);
-//document.getElementById("03a").addEventListener("click",revealHandler,false);
-//document.getElementById("04a").addEventListener("click",revealHandler,false);
-//document.getElementById("05a").addEventListener("click",revealHandler,false);
-//document.getElementById("06a").addEventListener("click",revealHandler,false);
-//document.getElementById("07a").addEventListener("click",revealHandler,false);
-//document.getElementById("08a").addEventListener("click",revealHandler,false);
-//document.getElementById("09a").addEventListener("click",revealHandler,false);
-//document.getElementById("10a").addEventListener("click",revealHandler,false);
-//document.getElementById("11a").addEventListener("click",revealHandler,false);
-//document.getElementById("12a").addEventListener("click",revealHandler,false);
-//document.getElementById("13a").addEventListener("click",revealHandler,false);
-//document.getElementById("14a").addEventListener("click",revealHandler,false);
-//document.getElementById("15a").addEventListener("click",revealHandler,false);
-//document.getElementById("16a").addEventListener("click",revealHandler,false);
-//document.getElementById("17a").addEventListener("click",revealHandler,false);
-//document.getElementById("18a").addEventListener("click",revealHandler,false);
-//document.getElementById("19a").addEventListener("click",revealHandler,false);
+ //document.getElementById("questionOne").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionTwo").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionThree").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionFour").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionFive").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionSix").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionSeven").addEventListener("click",revealAnswer,false);
+ //document.getElementById("questionEight").addEventListener("click",revealAnswer,false);
+
+ /* This is the JS function...it should reside in any of the linked scripts */
+function revealAnswer(){
+	//the element variable represents the element that was clicked on.
+	var element = this;
+	//grab all the LI within the parent
+	var listItems = element.getElementsByTagName('li');
+	//RIP through them, if correct then style one way, if NOT make gray.
+	for (var i=0, length=listItems.length;i < length;i++){
+		var theClassname = listItems[i].className;
+
+		if (theClassname == "correct CEL-answer"){
+			listItems[i].style.color = "#00A103";
+			listItems[i].style.fontWeight = "700";
+			var theFeedback = listItems[i].getAttribute("data-feedback");
 
 
-// end copy here.
+		}
+		else{listItems[i].style.color = "#adadad";}//end if
+	}//end for
+	//if your questions have no feedback then just comment the following line out.
+	alert(theFeedback);
+
+}//end function
  //==================== end JS copy here
 
 /* ======================================  The CSS styles     ================================== *
-These go into custom.css file.
-    .clickButton{text-align: right;}
-    .clickButton:hover{background-color: #ededed;color: #06e;}
+All of the CSS styles already exist in the linked CSS file. You don't have to add anything, but if you feel you need to change the colors, here are the styles that you can search for.
+    .CEL-answer:hover{background-color: #ededed;color: #000;}
+	.CEL-answer a{text-decoration: none;color: #000;}
+	.CEL-answer{font-size: 1em;}
 
  /* ======================================  The HTML Structure     ================================== */
-/* This is the HTML structure. Make sure both ID and data-pair match, and that the id of the reveal is the "b" version of the button id. */
-<div class="cel-row">
-            <div class="cel-40-a">
-                <h3 id="01a" data-pair="01b" class="clickButton">Reveal Button 01a </h3>
-            </div><!-- end 40-a-->
-            <div class="cel-60-b">
-                <div id="01b" class="theReveal visuallyhidden">
-                   <p>This content is hidden until the button gets pressed.</p>
-                    <hr>
-                </div><!-- end contentDIV -->
-            </div><!-- end 60-b-->
-        </div><!-- end row -->
-        <div class="cel-row">
-            <div class="cel-40-a">
-                <h3 id="02a" data-pair="02b" class="clickButton">Reveal Button 02a </h3>
-            </div><!-- end 40-a-->
-            <div class="cel-60-b">
-                <div id="02b" class="theReveal visuallyhidden">
-                    <p>This content is hidden until the button gets pressed.</p>
-                    <hr>
-                </div><!-- end contentDIV -->
-            </div><!-- end 60-b-->
-        </div><!-- end row -->
-        <div class="cel-row">
+/* This is the HTML structure. It must be a list, and can be iDed anything. Just make sure that ID matches the one in the addEventListener line in the JS File.  */
+/* Also don't forget to include the form element. */
+<div class="CEL-1col-100">
+    <h3>Multiple Choice Self Check</h3>
+    <form id="theForm">
+        <p>1.	The ability to know when more information is needed and the ability to find it, evaluate it and use it effectively is known as:</p>
+        <ul id="questionOne">
+            <li class="CEL-answer">Know the purpose </li>
+            <li class="CEL-answer">Technology</li>
+            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Information Literacy</li>
+            <li class="CEL-answer">Database</li>
+
+        </ul>
+        <p>2.	In which step of becoming information literate do you begin the search process?</p>
+        <ul id="questionTwo">
+            <li class="CEL-answer">Know the purpose</li>
+            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Retrieve</li>
+            <li class="CEL-answer">Evaluate</li>
+            <li class="CEL-answer">Use</li>
+
+        </ul>
+        <p>3.	Determining what kind of information you need and for what reason happens during which step?</p>
+        <ul id="questionThree">
+            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Know the purpose</li>
+            <li class="CEL-answer">Retrieve</li>
+            <li class="CEL-answer">Evaluate</li>
+            <li class="CEL-answer">Use</li>
+
+        </ul>
+        <p>4.	Determining if sources are credible and relevant to your topic occurs during which step?</p>
+        <ul id="questionFour">
+            <li class="CEL-answer">Know the purpose</li>
+            <li class="CEL-answer">Retrieve</li>
+            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Evaluate</li>
+            <li class="CEL-answer">Use</li>
+
+        </ul>
+    </form>
+</div><!-- CEL-1col-100 -->
 
