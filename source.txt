@@ -53,8 +53,8 @@ revealAnswer:function(){
 
    NOTE: To change the colors just edit the widget-multiChoice.scss file
 
-/* ======================================  STEP 4: the CSS   ================================== */
-/* STEP FOUR: add the HTML structure to index.html by copy/pasting the following row anywhere you need. */
+/* ======================================  STEP 4: the HTML Structure   ================================== */
+/* STEP FOUR: add the HTML structure to index.html by copy/pasting the following HTML anywhere you need. */
 /* =================================================================================== */
 
 
@@ -98,4 +98,3 @@ revealAnswer:function(){
         </ul>
     </form>
 </div><!-- end cel-row -->
-
