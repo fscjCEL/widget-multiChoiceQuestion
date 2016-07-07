@@ -1,57 +1,67 @@
-This is a widget that was made to be used within the Center for E-Learning's Learning Object architecture. It can be used anywhere on the web that uses HTML, CSS, and JS to get the job done.
-
- /* ======================================  The JS     ================================== */
- // Directions
- // Paste the JS code at the top of the linked .JS file.
- // Make sure there is an addEventListener line per IDed HTML UL answer element.
- // Make sure that the ID on the addEventListener line matches an UL List element exactly.
-
- //=====================start JS copy here
-
- //document.getElementById("questionOne").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionTwo").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionThree").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionFour").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionFive").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionSix").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionSeven").addEventListener("click",revealAnswer,false);
- //document.getElementById("questionEight").addEventListener("click",revealAnswer,false);
-
- /* This is the JS function...it should reside in any of the linked scripts */
-function revealAnswer(){
-	//the element variable represents the element that was clicked on.
-	var element = this;
-	//grab all the LI within the parent
-	var listItems = element.getElementsByTagName('li');
-	//RIP through them, if correct then style one way, if NOT make gray.
-	for (var i=0, length=listItems.length;i < length;i++){
-		var theClassname = listItems[i].className;
-
-		if (theClassname == "correct CEL-answer"){
-			listItems[i].style.color = "#00A103";
-			listItems[i].style.fontWeight = "700";
-			var theFeedback = listItems[i].getAttribute("data-feedback");
+ /* ======================================  STEP 1: some JS   ================================== */
+ /* STEP ONE: Paste the following function right below the very first line in the main JS file which should read—" var methods = { ". */
+ /* =================================================================================== */
 
 
-		}
-		else{listItems[i].style.color = "#adadad";}//end if
-	}//end for
-	//if your questions have no feedback then just comment the following line out.
-	alert(theFeedback);
+ //start function copy here
 
-}//end function
- //==================== end JS copy here
+revealAnswer:function(){
+        //the element variable represents the element that was clicked on.
+        var element = this;
+        //grab all the LI within the parent
+        var listItems = element.getElementsByTagName('li');
+        //RIP through them, if correct then style one way, if NOT make gray.
+        for (var i=0, length=listItems.length;i < length;i++){
+            var theClassname = listItems[i].className;
+            if (theClassname == "correct CEL-answer"){
+                //this is the correct answer so turn it green
+                listItems[i].style.color = "#00A103";
+                //then make it bold
+                listItems[i].style.fontWeight = "700";
+                //now shove the feedback into something you can view.
+                var theFeedback = listItems[i].getAttribute("data-feedback");
+            }
+            else{
+                //this is the wrong answer so turn it grey
+                listItems[i].style.color = "#adadad";
+                //we don't want any follow up clicks so kill the click listener.
+                listItems[i].parentNode.removeEventListener("click", methods.revealAnswer,false);
+            }//end if
+        }//end for
+        //if your questions have no feedback then just comment the following line out.
+        alert(theFeedback);
 
-/* ======================================  The CSS styles     ================================== *
-All of the CSS styles already exist in the linked CSS file. You don't have to add anything, but if you feel you need to change the colors, here are the styles that you can search for.
-    .CEL-answer:hover{background-color: #ededed;color: #000;}
-	.CEL-answer a{text-decoration: none;color: #000;}
-	.CEL-answer{font-size: 1em;}
+    },//end function
+
+ //end function copy here
+
+/* ======================================  STEP 2: more JS   ================================== */
+/* STEP TWO: Add event listener lines to the widgetListeners function. */
+/* =================================================================================== */
+
+
+     document.getElementById("questionOne").addEventListener("click",methods.revealAnswer,false);
+     document.getElementById("questionTwo").addEventListener("click",methods.revealAnswer,false);
+     document.getElementById("questionThree").addEventListener("click",methods.revealAnswer,false);
+     document.getElementById("questionFour").addEventListener("click",methods.revealAnswer,false);
+
+/* ======================================  STEP 3: the CSS   ================================== */
+/* STEP THREE: uncomment the following line in the style.scss file. */
+/* =================================================================================== */
+
+    //@import 'widget-multiChoice';
+
+   NOTE: To change the colors just edit the widget-multiChoice.scss file
+
+/* ======================================  STEP 4: the CSS   ================================== */
+/* STEP FOUR: add the HTML structure to index.html by copy/pasting the following row anywhere you need. */
+/* =================================================================================== */
+
 
  /* ======================================  The HTML Structure     ================================== */
-/* This is the HTML structure. It must be a list, and can be iDed anything. Just make sure that ID matches the one in the addEventListener line in the JS File.  */
-/* Also don't forget to include the form element. */
-<div class="CEL-1col-100">
+/* This is a sample of the HTML structure. It must be a list, and can be iDed anything. Just make sure that ID matches the one in the addEventListener line in the JS File.  */
+/* Also—don't forget to include the form element. */
+<div class="cel-row">
     <h3>Multiple Choice Self Check</h3>
     <form id="theForm">
         <p>1.	The ability to know when more information is needed and the ability to find it, evaluate it and use it effectively is known as:</p>
@@ -87,5 +97,5 @@ All of the CSS styles already exist in the linked CSS file. You don't have to ad
 
         </ul>
     </form>
-</div><!-- CEL-1col-100 -->
+</div><!-- end cel-row -->
 
