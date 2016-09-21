@@ -1,99 +1,81 @@
  /* ======================================  STEP 1: some JS   ================================== */
  /* STEP ONE: Paste the following function right below the very first line in the main JS file which should read—" var methods = { ". */
  /* =================================================================================== */
-
-
- //start function copy here
-
-revealAnswer:function(){
+var multiChoiceMethod = {
+    revealAnswer:function(){
         //the element variable represents the element that was clicked on.
         var element = this;
         //grab all the LI within the parent
-        var listItems = element.getElementsByTagName('li');
+        var listItems = element.parentNode.getElementsByTagName('li');
         //RIP through them, if correct then style one way, if NOT make gray.
         for (var i=0, length=listItems.length;i < length;i++){
             var theClassname = listItems[i].className;
-            if (theClassname == "correct CEL-answer"){
+            if (theClassname == "correct cel-answer"){
                 //this is the correct answer so turn it green
-                listItems[i].style.color = "#00A103";
-                //then make it bold
-                listItems[i].style.fontWeight = "700";
+                listItems[i].classList.remove("cel-answer");
+                listItems[i].classList.add("cel-answer-is-correct");
                 //now shove the feedback into something you can view.
                 var theFeedback = listItems[i].getAttribute("data-feedback");
             }
             else{
                 //this is the wrong answer so turn it grey
-                listItems[i].style.color = "#adadad";
-                //we don't want any follow up clicks so kill the click listener.
-                listItems[i].parentNode.removeEventListener("click", methods.revealAnswer,false);
+                listItems[i].classList.remove("cel-answer");
+                listItems[i].classList.add("cel-answer-is-incorrect");
+                listItems[i].removeEventListener("click",multiChoiceMethod.revealAnswer,false);
+                //listItems[i].parentNode.removeEventListener("click",multiChoiceMethod.revealAnswer,false);
             }//end if
         }//end for
         //if your questions have no feedback then just comment the following line out.
         alert(theFeedback);
 
-    },//end function
+    } //end function
+}; //end method
+var multiChoiceQuestion = document.getElementsByClassName("cel-answer");
+for(var zz=0;zz<multiChoiceQuestion.length;zz++){
+    multiChoiceQuestion[zz].addEventListener("click",multiChoiceMethod.revealAnswer,"false");
+}//end for
 
- //end function copy here
 
-/* ======================================  STEP 2: more JS   ================================== */
-/* STEP TWO: Add event listener lines to the widgetListeners function. */
+
+
+/* ======================================  STEP 2: the HTML Structure   ================================== */
+/* STEP TWO: add the HTML structure to index.html by copy/pasting the following HTML anywhere you need. */
+/* NOTE make sure that the correct answer in each group is classes as such and has data-feedback*/
 /* =================================================================================== */
 
-
-     document.getElementById("questionOne").addEventListener("click",methods.revealAnswer,false);
-     document.getElementById("questionTwo").addEventListener("click",methods.revealAnswer,false);
-     document.getElementById("questionThree").addEventListener("click",methods.revealAnswer,false);
-     document.getElementById("questionFour").addEventListener("click",methods.revealAnswer,false);
-
-/* ======================================  STEP 3: the CSS   ================================== */
-/* STEP THREE: uncomment the following line in the style.scss file. */
-/* =================================================================================== */
-
-    //@import 'widget-multiChoice';
-
-   NOTE: To change the colors just edit the widget-multiChoice.scss file
-
-/* ======================================  STEP 4: the HTML Structure   ================================== */
-/* STEP FOUR: add the HTML structure to index.html by copy/pasting the following HTML anywhere you need. */
-/* =================================================================================== */
-
-
- /* ======================================  The HTML Structure     ================================== */
-/* This is a sample of the HTML structure. It must be a list, and can be iDed anything. Just make sure that ID matches the one in the addEventListener line in the JS File.  */
-/* Also—don't forget to include the form element. */
-<div class="cel-row">
+ <div class="cel-row">
     <h3>Multiple Choice Self Check</h3>
-    <form id="theForm">
+    <form>
         <p>1.	The ability to know when more information is needed and the ability to find it, evaluate it and use it effectively is known as:</p>
-        <ul id="questionOne">
-            <li class="CEL-answer">Know the purpose </li>
-            <li class="CEL-answer">Technology</li>
-            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Information Literacy</li>
-            <li class="CEL-answer">Database</li>
+        <ul>
+            <li class="cel-answer">Know the purpose </li>
+            <li class="cel-answer">Technology</li>
+            <li class="correct cel-answer" data-feedback=" insert question feedback here.">Information Literacy</li>
+            <li class="cel-answer">Database</li>
 
         </ul>
         <p>2.	In which step of becoming information literate do you begin the search process?</p>
-        <ul id="questionTwo">
-            <li class="CEL-answer">Know the purpose</li>
-            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Retrieve</li>
-            <li class="CEL-answer">Evaluate</li>
-            <li class="CEL-answer">Use</li>
+        <ul>
+            <li class="cel-answer">Know the purpose</li>
+            <li class="correct cel-answer" data-feedback=" insert question feedback here.">Retrieve</li>
+            <li class="cel-answer">Evaluate</li>
+            <li class="cel-answer">Use</li>
 
         </ul>
         <p>3.	Determining what kind of information you need and for what reason happens during which step?</p>
-        <ul id="questionThree">
-            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Know the purpose</li>
-            <li class="CEL-answer">Retrieve</li>
-            <li class="CEL-answer">Evaluate</li>
-            <li class="CEL-answer">Use</li>
+        <ul>
+            <li class="correct cel-answer" data-feedback=" insert question feedback here.">Know the purpose</li>
+            <li class="cel-answer">Retrieve</li>
+            <li class="cel-answer">Evaluate</li>
+            <li class="cel-answer">Use</li>
 
         </ul>
         <p>4.	Determining if sources are credible and relevant to your topic occurs during which step?</p>
-        <ul id="questionFour">
-            <li class="CEL-answer">Know the purpose</li>
-            <li class="CEL-answer">Retrieve</li>
-            <li class="correct CEL-answer" data-feedback=" insert question feedback here.">Evaluate</li>
-            <li class="CEL-answer">Use</li>
+        <ul>
+            <li class="cel-answer">Know the purpose</li>
+            <li class="cel-answer">Retrieve</li>
+            <li class="correct cel-answer" data-feedback=" insert question feedback here.">Evaluate</li>
+            <li class="cel-answer">Use</li>
 
         </ul>
     </form>
