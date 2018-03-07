@@ -22,20 +22,28 @@ for(var xz=0;xz<clickRevealHeaders.length;xz++){
 var multiChoiceMethod = {
     revealAnswer:function(){
         //the element variable represents the element that was clicked on.
-        var element = this;
+        var element = this, theFeedback;
+        var parentList = element.parentNode;
 
         if (element.classList.contains("correct")){
-            var theFeedback = document.getElementById("feedbackReveal-1");
+            theFeedback = element.getElementsByClassName("feedback-multi")[0];
             if (theFeedback.classList.contains("is-invisible")){
                 theFeedback.classList.remove("is-invisible");
             }//endif'
             element.classList.remove("cel-answer");
             element.classList.add("cel-answer-is-correct");
+            for (var m = 0; m <= parentList.length; m++){
+                console.log(parentList[m].innerHTML);
+                parentList[m].removeEventListener("click",multiChoiceMethod.revealAnswer,false);
+            }
+
         }else{
+            theFeedback = element.getElementsByClassName("feedback-multi")[0];
+            if (theFeedback.classList.contains("is-invisible")){
+                theFeedback.classList.remove("is-invisible");
+            }//endif'
             element.classList.remove("cel-answer");
             element.classList.add("cel-answer-is-incorrect");
-            alert("That answer was not correct, please try again...");
-            element.removeEventListener("click",multiChoiceMethod.revealAnswer,false);
         }//endifThenElse
 
 
