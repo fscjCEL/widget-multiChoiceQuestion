@@ -27,11 +27,14 @@ var multiChoiceMethod = {
 
         if (element.classList.contains("correct")){
             theFeedback = element.getElementsByClassName("feedback-multi")[0];
-            if (theFeedback.classList.contains("is-invisible")){
-                theFeedback.classList.remove("is-invisible");
-            }//endif'
-            element.classList.remove("cel-answer");
-            element.classList.add("cel-answer-is-correct");
+            if (theFeedback.classList.contains("feedback-is-closed")){
+                theFeedback.classList.remove("feedback-is-closed");
+                theFeedback.classList.add("feedback-is-open");
+                theFeedback.style.height = "auto";
+            }//endif
+            element.classList.remove("multi-answer");
+            element.classList.add("multi-answer-is-correct");
+            element.classList.add("is-cleared");
             for (var m = 0; m <= parentList.length; m++){
                 console.log(parentList[m].innerHTML);
                 parentList[m].removeEventListener("click",multiChoiceMethod.revealAnswer,false);
@@ -39,17 +42,19 @@ var multiChoiceMethod = {
 
         }else{
             theFeedback = element.getElementsByClassName("feedback-multi")[0];
-            if (theFeedback.classList.contains("is-invisible")){
-                theFeedback.classList.remove("is-invisible");
-            }//endif'
-            element.classList.remove("cel-answer");
-            element.classList.add("cel-answer-is-incorrect");
+            if (theFeedback.classList.contains("feedback-is-closed")){
+                theFeedback.classList.remove("feedback-is-closed");
+                theFeedback.classList.add("feedback-is-open");
+                theFeedback.style.height = "auto";
+            }//endif
+            element.classList.remove("multi-answer");
+            element.classList.add("multi-answer-is-incorrect");
         }//endifThenElse
 
 
     } //end function
 }; //end method
-var multiChoiceQuestion = document.getElementsByClassName("cel-answer");
+var multiChoiceQuestion = document.getElementsByClassName("multi-answer");
 for(var zz=0;zz<multiChoiceQuestion.length;zz++){
     multiChoiceQuestion[zz].addEventListener("click",multiChoiceMethod.revealAnswer,"false");
 }//end for
