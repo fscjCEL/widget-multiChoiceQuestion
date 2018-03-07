@@ -1,0 +1,127 @@
+================================== */
+ /* STEP ONE: Paste the following function right below the very first line in the main JS file which should read—" var methods = { ". */
+ /* =================================================================================== */
+
+var multiChoiceMethod = {
+    revealAnswer:function(){
+        //the element variable represents the element that was clicked on.
+        var element = this, theFeedback;
+        var parentList = element.parentNode;
+
+        if (element.classList.contains("correct")){
+            theFeedback = element.getElementsByClassName("multi-feedback")[0];
+            if (theFeedback.classList.contains("feedback-is-closed")){
+                theFeedback.classList.remove("feedback-is-closed");
+                theFeedback.classList.add("feedback-is-open");
+                theFeedback.style.height = "auto";
+            }//endif
+            element.classList.remove("multi-answer");
+            element.classList.add("multi-answer-is-correct");
+            element.classList.add("is-cleared");
+            for (var m = 0; m <= parentList.length; m++){
+                console.log(parentList[m].innerHTML);
+                parentList[m].removeEventListener("click",multiChoiceMethod.revealAnswer,false);
+            }
+
+        }else{
+            theFeedback = element.getElementsByClassName("multi-feedback")[0];
+            if (theFeedback.classList.contains("feedback-is-closed")){
+                theFeedback.classList.remove("feedback-is-closed");
+                theFeedback.classList.add("feedback-is-open");
+                theFeedback.style.height = "auto";
+            }//endif
+            element.classList.remove("multi-answer");
+            element.classList.add("multi-answer-is-incorrect");
+        }//endifThenElse
+
+
+    } //end function
+}; //end method
+var multiChoiceQuestion = document.getElementsByClassName("multi-answer");
+for(var zz=0;zz<multiChoiceQuestion.length;zz++){
+    multiChoiceQuestion[zz].addEventListener("click",multiChoiceMethod.revealAnswer,"false");
+}//end for
+var multiChoiceFeedbacks = document.getElementsByClassName("multi-feedback");
+for(var i=0;i<multiChoiceQuestion.length;i++){
+    multiChoiceFeedbacks[i].classList.add("feedback-is-closed");
+}//end for
+
+
+ /* ======================================  STEP 2: the HTML Structure   ================================== */
+ /* STEP TWO: add the HTML structure to index.html by copy/pasting the following HTML anywhere you need. */
+ /* NOTE Each div below with class="multi-question" is stand alone. You can singly put them anywhere.  */
+ /* =================================================================================== */
+ /* */
+
+<section class="cel-row">
+    <h3>Multiple Choice Self Check</h3>
+    <p><em>Read the questions below and select the best answer.</em></p>
+    <div class="multi-question">
+            <p>President Truman’s executive order on segregation falls within the realm of which of the three models of presidential power.</p>
+            <ol type="a">
+                <li class="multi-answer">
+                    <p>Jeffersonian</p>
+                    <div class="multi-feedback">
+                        <p><em>That answer was not correct, you should try again.</em> </p>
+                    </div>
+                </li>
+                <li class="multi-answer correct">
+                    <p>Hamiltonian</p>
+                    <div class="multi-feedback">
+                        <p>Good answer, that was CORRECT!</p>
+                    </div>
+                </li>
+                <li class="multi-answer">
+                    <p>Madisonian</p>
+                    <div class="multi-feedback">
+                        <p><em>That answer was not correct, you should try again.</em> </p>
+                    </div>
+                </li>
+                <li class="multi-answer">
+                    <p>Adamsonian <sup>(1)</sup></p>
+                    <div class="multi-feedback">
+                        <p><em>That answer was not correct, you should try again.</em> </p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    <div class="multi-question">
+        <p>An example of a TRUE/FALSE question. (Note: the correct answer is false in this example.)</p>
+        <ol type="a">
+            <li class="multi-answer">
+                <p>True</p>
+                <div class="multi-feedback">
+                    <p><em>That answer was not correct, you should try again.</em> </p>
+                </div>
+            </li>
+            <li class="multi-answer correct">
+                <p>False</p>
+                <div class="multi-feedback">
+                    <p><em>Good answer</em>, that was CORRECT!</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section><!--end cel-row section -->
+
+
+
+
+
+
+
+/* --------------------------------The CSS Involved ------------------------------------------- */
+/* YOu shouldn't have to do anything with the CSS because these styles are already baked into the framework.*/
+/* I just want them here for reference, or if you would like to use it somewhere else. */
+
+.multi-question{border-top: 1px solid $shadowColor;padding:1rem;}
+.cel-multi>p{font-size: 1.25rem;}
+.multi-feedback{width:100%;adding: 0;margin: 0 0 .5rem 0;background-color: $white;}
+.feedback-is-closed{height:0;overflow: hidden;}
+.feedback-is-open{overflow: visible;}
+.multi-answer{font-size: 1em;width: 100%;}
+.multi-answer p:hover{background-color: #ededed;cursor: pointer;}
+.multi-answer p{width: 100%;border:1px solid #ededed;margin-bottom: .75rem;padding-left: .5rem;}
+.multi-answer-is-correct{border: 1px solid lightgreen;font-size: 1.25rem;}
+.multi-answer-is-correct>p{font-style: italic;font-size: 1.25rem;background-color: lightgreen;}
+
